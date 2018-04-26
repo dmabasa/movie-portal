@@ -31,7 +31,6 @@ import za.co.supergroup.model.jpa.Movie;
 public class MovieControllerIntegrationTests {
 	
 	private static final String BASE_URI = "http://localhost:8080/api";
-    private static final int UNKNOWN_ID = Integer.MAX_VALUE;
 
     @Autowired
     private RestTemplate template;

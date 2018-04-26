@@ -51,10 +51,9 @@ public class MovieController {
 	public ResponseEntity<Void> createMovie(@RequestBody Movie movie, UriComponentsBuilder builder) {
         boolean flag = movieService.createMovie(movie);
         if (flag == false) {
-        	LOG.info("************************************************************* Movie already exists *****************");
         	return new ResponseEntity<Void>(HttpStatus.CONFLICT);
         }
-        LOG.info("*************************************************************Createing a movie *****************");
+       
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(builder.path("/movie?id={id}").buildAndExpand(movie.getId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
